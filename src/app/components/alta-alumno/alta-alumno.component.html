@@ -1,0 +1,27 @@
+
+<form [formGroup]="formulario" (ngSubmit)="guardarAlumno()" >
+
+   <a href="">Seleccionar Foto</a>
+
+  <label for="">Documento</label>
+  <input type="text" placeholder="12345678">
+
+  <label for="nombre">Nombre</label>
+  <input type="text" name="nombre" id="" placeholder="Juan Alberto" formControlName="nombre"  >
+
+  <label for="apellido">Apellido</label>
+  <input type="text" name="apellido" placeholder="Gomez" formControlName="apellido">
+
+  <label for="email">Email</label>
+  <input type="email" name="enmail" id="" placeholder="JuanAlberto@mail.com">
+
+  <label for="nacimiento">Fecha de Nacimiento</label>
+  <input type="date" name="nacimiento" id="">
+
+  <label for="">Pais</label>
+  <select name="" id="">
+    <option value="Argentina">Argentina</option>
+  </select>
+
+  <button type="submit">Guardar</button>
+</form>

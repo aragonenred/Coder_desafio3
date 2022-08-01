@@ -1,0 +1,14 @@
+.header{
+  background-color: white;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+nav h3{
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  padding: 20px 10px 5px 20px ;
+  color: white;
+}
+

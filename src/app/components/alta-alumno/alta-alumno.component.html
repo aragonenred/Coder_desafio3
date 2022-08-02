@@ -1,27 +1,72 @@
+<div class="d-flex justify-content-center">
+  <form class="form" [formGroup]="formulario" (ngSubmit)="guardarAlumno()" >
 
-<form [formGroup]="formulario" (ngSubmit)="guardarAlumno()" >
 
-   <a href="">Seleccionar Foto</a>
+      <div class="form-row">
+        <div class="col-12 text-center">
+          <div class="wrap-custom-file">
+            <input  (change)="capturarFile($event)"  type="file" name="image1" id="image1" accept=".gif, .jpg, .png" />
+            <label  for="image1"><span *ngIf="!previsualizacion">Seleccioná una foto de perfil</span></label>
+            <img [src]="previsualizacion" *ngIf="previsualizacion"  class="prevImg">
+          </div>
+        </div>
+      </div>
 
-  <label for="">Documento</label>
-  <input type="text" placeholder="12345678">
 
-  <label for="nombre">Nombre</label>
-  <input type="text" name="nombre" id="" placeholder="Juan Alberto" formControlName="nombre"  >
+    <div class="form-group">
+      <div class="form-row">
+          <div class="col-6">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="" placeholder="Juan Alberto" formControlName="nombre" class="form-control" >
+          </div>
+          <div class="col-6">
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" placeholder="Gomez" formControlName="apellido" class="form-control">
+          </div>
+      </div>
+    </div>
 
-  <label for="apellido">Apellido</label>
-  <input type="text" name="apellido" placeholder="Gomez" formControlName="apellido">
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-6">
+          <label for="">Documento</label>
+          <input type="text" placeholder="12345678" class="form-control" >
+        </div>
+      </div>
+    </div>
 
-  <label for="email">Email</label>
-  <input type="email" name="enmail" id="" placeholder="JuanAlberto@mail.com">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" name="enmail" id="" placeholder="JuanAlberto@mail.com" class="form-control">
+    </div>
 
-  <label for="nacimiento">Fecha de Nacimiento</label>
-  <input type="date" name="nacimiento" id="">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-6">
+          <label for="nacimiento">Fecha de Nacimiento</label>
+          <input type="date" name="nacimiento" id="" class="form-control">
+        </div>
+        <div class="col-6">
+          <label for="">Pais</label>
+          <select name="" id="" class="form-control">
+            <option value="Argentina">Argentina</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-  <label for="">Pais</label>
-  <select name="" id="">
-    <option value="Argentina">Argentina</option>
-  </select>
+    <div class="form-group">
 
-  <button type="submit">Guardar</button>
-</form>
+    </div>
+
+    <div class="form-group">
+      <div class="form-row justify-content-center">
+        <button type="submit" class="btn btn-dark ">Guardar</button>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+

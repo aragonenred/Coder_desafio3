@@ -9,14 +9,12 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class AltaAlumnoComponent implements OnInit {
 
-  formulario: FormGroup;
+  formulario: FormGroup = new FormGroup({
+    nombre: new FormControl('', [Validators.required]),
+    apellido: new FormControl('', [Validators.required])
+  });
 
   constructor( private fb:FormBuilder) {
-    this.formulario = fb.group({
-      nombre: new FormControl('', [Validators.required]),
-      apellido: new FormControl('', [Validators.required])
-    });
-
 
    }
 

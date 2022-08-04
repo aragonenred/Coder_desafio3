@@ -5,6 +5,7 @@
   position: fixed;
   top: 0;
   z-index: 1000;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 nav h3{
   font-family: 'Oswald', sans-serif;

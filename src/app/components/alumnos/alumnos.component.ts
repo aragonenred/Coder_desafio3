@@ -3,11 +3,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Observable, Subscriber } from 'rxjs';
 
 @Component({
-  selector: 'app-alta-alumno',
-  templateUrl: './alta-alumno.component.html',
-  styleUrls: ['./alta-alumno.component.css']
+  selector: 'app-alumnos',
+  templateUrl: './alumnos.component.html',
+  styleUrls: ['./alumnos.component.css']
 })
-export class AltaAlumnoComponent implements OnInit {
+export class AlumnosComponent implements OnInit {
 
   formulario: FormGroup = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
@@ -18,16 +18,63 @@ export class AltaAlumnoComponent implements OnInit {
     pais: new FormControl('',[Validators.required]),
   });
 
+  paises:string[] = ['Argentina','Brasil', 'Uruguay'];
 
-  constructor( private fb:FormBuilder) {
+  alumnos = [
+    {
+      nombre: "Juan Alberto",
+      apellido: "Paez",
+      documento: "23615487",
+      mail: "juan@gmail.com",
+      edad: "29",
+      pais: "Activo"
+    },
+    {
+      nombre: "Mauro Fernando",
+      apellido: "Alvarez",
+      documento: "44895678",
+      mail: "mauro@gmail.com.ar",
+      edad: "18",
+      pais: "Activo"
+    }
+  ];
 
-   }
 
-   previsualizacion!: string;
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  previsualizacion!: string;
 
    guardarAlumno(){
     console.log(this.formulario);
+    if(this.formulario.valid ===true){
+      this.alumnos.push({
+        nombre: this.formulario.get('nombre')?.value,
+        apellido: this.formulario.get('apellido')?.value,
+        documento: this.formulario.get('documento')?.value,
+        mail: this.formulario.get('mail')?.value,
+        edad: this.ageCalculator(this.formulario.get('nacimiento')?.value),
+        pais: this.formulario.get('pais')?.value
+      });
+      this.formulario.reset();
+    }else{
+      alert('Hay campos invalidos');
+    }
    }
+
+
+   ageCalculator(nacimiento:string):string{
+      const convertAge = new Date(nacimiento);
+      console.log(nacimiento);
+      const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+      let edad = (Math.floor((timeDiff / (1000 * 3600 * 24))/365));
+      return String(edad);
+    }
+
+
+
 
    capturarFile(event:any){
       console.log(event.target.files[0]);
@@ -62,10 +109,5 @@ export class AltaAlumnoComponent implements OnInit {
        subscriber.complete()
      }
    }
-
-
-
-  ngOnInit(): void {
-  }
 
 }
